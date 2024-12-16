@@ -1,9 +1,9 @@
 Resources:
   # S3 Bucket
-  GTVitrineWebsiteBucket:
+  GTOVitrineWebsiteBucket:
     Type: AWS::S3::Bucket
     Properties:
-      BucketName: gt-vitrine-website-bucket
+      BucketName: vitrine-gto.e5-estiam.com
       WebsiteConfiguration:
         IndexDocument: index.html
         ErrorDocument: error.html
@@ -13,10 +13,10 @@ Resources:
         BlockPublicPolicy: false
         RestrictPublicBuckets: false
 
-  GTVitrineWebsiteBucketPolicy:
+  GTOVitrineWebsiteBucketPolicy:
     Type: AWS::S3::BucketPolicy
     Properties:
-      Bucket: !Ref GTVitrineWebsiteBucket
+      Bucket: !Ref GTOVitrineWebsiteBucket
       PolicyDocument:
         Version: '2012-10-17'
         Statement:
@@ -26,9 +26,21 @@ Resources:
             Action:
              - s3:GetObject
              - s3:PutObjectAcl
-            Resource: !Sub '${GTVitrineWebsiteBucket.Arn}/*'
+            Resource: !Sub '${GTOVitrineWebsiteBucket.Arn}/*'
+
+  # DNS Record in Route 53
+  GTVitrineDNSRecord:
+    Type: AWS::Route53::RecordSet
+    Properties:
+      HostedZoneName: e5-estiam.com.
+      Name: vitrine-gto.e5-estiam.com.
+      Type: A
+      AliasTarget:
+        DNSName: !GetAtt GTOVitrineWebsiteBucket.WebsiteURL
+        HostedZoneId: Z10313013SKI9CM0C3DLG
+      TTL: 300
 
 Outputs:
   GTS3WebsiteUrl:
-    Value: !Sub 'http://${GTVitrineWebsiteBucket}.s3-website-${AWS::Region}.amazonaws.com'
+    Value: !Sub 'http://${GTOVitrineWebsiteBucket}.s3-website-${AWS::Region}.amazonaws.com'
     Description: URL de l'hébergement web statique S3.
