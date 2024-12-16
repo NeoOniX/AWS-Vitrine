@@ -3,7 +3,7 @@ Resources:
   GTVitrineWebsiteBucket:
     Type: AWS::S3::Bucket
     Properties:
-      BucketName: gt-static-website-bucket
+      BucketName: gt-vitrine-website-bucket
       WebsiteConfiguration:
         IndexDocument: index.html
         ErrorDocument: error.html
