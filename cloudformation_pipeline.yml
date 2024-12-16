@@ -1,0 +1,30 @@
+Resources:
+  # S3 Bucket
+  GTVitrineWebsiteBucket:
+    Type: AWS::S3::Bucket
+    Properties:
+      BucketName: gt-static-website-bucket
+      WebsiteConfiguration:
+        IndexDocument: index.html
+        ErrorDocument: error.html
+
+  GTVitrineWebsiteBucketPolicy:
+    Type: AWS::S3::BucketPolicy
+    Properties:
+      Bucket: !Ref GTVitrineWebsiteBucket
+      PolicyDocument:
+        Version: '2012-10-17'
+        Statement:
+          - Sid: PublicReadGetObject
+            Effect: Allow
+            Principal: 
+              AWS: "arn:aws:iam::719862224486:root"
+            Action:
+             - s3:GetObject
+             - s3:PutObjectAcl
+            Resource: !Sub '${GTVitrineWebsiteBucket.Arn}/*'
+
+Outputs:
+  GTS3WebsiteUrl:
+    Value: !Sub 'http://${GTVitrineWebsiteBucket}.s3-website-${AWS::Region}.amazonaws.com'
+    Description: URL de l'hébergement web statique S3.
