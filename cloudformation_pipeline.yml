@@ -3,7 +3,7 @@ Resources:
   GTOVitrineWebsiteBucket:
     Type: AWS::S3::Bucket
     Properties:
-      BucketName: vitrine-gto.e5-estiam.com
+      BucketName: vitrine-gto.e5estiam.com
       WebsiteConfiguration:
         IndexDocument: index.html
         ErrorDocument: error.html
@@ -29,11 +29,11 @@ Resources:
             Resource: !Sub '${GTOVitrineWebsiteBucket.Arn}/*'
 
   # DNS Record in Route 53
-  GTVitrineDNSRecord:
+  GTOVitrineDNSRecord:
     Type: AWS::Route53::RecordSet
     Properties:
-      HostedZoneName: e5-estiam.com.
-      Name: vitrine-gto.e5-estiam.com.
+      HostedZoneName: e5estiam.com.
+      Name: vitrine-gto.e5estiam.com.
       Type: A
       AliasTarget:
         DNSName: !GetAtt GTOVitrineWebsiteBucket.WebsiteURL
