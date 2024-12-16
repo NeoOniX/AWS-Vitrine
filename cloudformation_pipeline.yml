@@ -22,8 +22,7 @@ Resources:
         Statement:
           - Sid: PublicReadGetObject
             Effect: Allow
-            Principal: 
-              AWS: "arn:aws:iam::719862224486:root"
+            Principal: "*"
             Action:
              - s3:GetObject
              - s3:PutObjectAcl
