@@ -38,7 +38,6 @@ Resources:
       AliasTarget:
         DNSName: !GetAtt GTOVitrineWebsiteBucket.WebsiteURL
         HostedZoneId: Z10313013SKI9CM0C3DLG
-      TTL: 300
 
 Outputs:
   GTS3WebsiteUrl:
