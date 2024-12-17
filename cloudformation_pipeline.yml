@@ -38,7 +38,7 @@ Resources:
       Type: CNAME
       TTL: 300
       ResourceRecords:
-        - !Sub "${GTVitrineWebsiteBucket.WebsiteURL}"
+        - !Sub "${GTOVitrineWebsiteBucket.WebsiteURL}"
 
 Outputs:
   GTS3WebsiteUrl:
