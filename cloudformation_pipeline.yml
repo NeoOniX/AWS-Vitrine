@@ -30,15 +30,15 @@ Resources:
             Resource: !Sub '${GTOVitrineWebsiteBucket.Arn}/*'
 
   # DNS Record in Route 53
-  GTOVitrineDNSRecord:
-    Type: AWS::Route53::RecordSet
-    Properties:
-      HostedZoneName: e5estiam.com.
-      Name: vitrine-gto.e5estiam.com.
-      Type: CNAME
-      TTL: 300
-      ResourceRecords:
-        - !Sub "${GTVitrineWebsiteBucket}.s3-website-${AWS::Region}.amazonaws.com"
+  # GTOVitrineDNSRecord:
+  #   Type: AWS::Route53::RecordSet
+  #   Properties:
+  #     HostedZoneName: e5estiam.com.
+  #     Name: vitrine-gto.e5estiam.com.
+  #     Type: CNAME
+  #     TTL: 300
+  #     ResourceRecords:
+  #       - !Sub "${GTVitrineWebsiteBucket}.s3-website-${AWS::Region}.amazonaws.com"
 
 Outputs:
   GTS3WebsiteUrl:
