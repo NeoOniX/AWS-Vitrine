@@ -35,10 +35,10 @@ Resources:
     Properties:
       HostedZoneName: e5estiam.com.
       Name: vitrine-gto.e5estiam.com.
-      Type: A
-      AliasTarget:
-        DNSName: !GetAtt GTOVitrineWebsiteBucket.WebsiteURL
-        HostedZoneId: Z10313013SKI9CM0C3DLG
+      Type: CNAME
+      TTL: 300
+      ResourceRecords:
+        - !Sub "${GTVitrineWebsiteBucket}.s3-website-${AWS::Region}.amazonaws.com"
 
 Outputs:
   GTS3WebsiteUrl:
