@@ -26,6 +26,7 @@ Resources:
             Action:
              - s3:GetObject
              - s3:PutObjectAcl
+             - s3:PutObject
             Resource: !Sub '${GTOVitrineWebsiteBucket.Arn}/*'
 
   # DNS Record in Route 53
