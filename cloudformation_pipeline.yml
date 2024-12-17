@@ -34,11 +34,11 @@ Resources:
     Type: AWS::Route53::RecordSet
     Properties:
       HostedZoneName: e5estiam.com.
-      Name: vitrine-gto.e5estiam.com.
+      Name: vitrine-gto.e5estiam.com
       Type: CNAME
       TTL: 900
       ResourceRecords:
-        - !Sub "${GTVitrineWebsiteBucket}.s3-website-${AWS::Region}.amazonaws.com"
+        - !Sub "${GTVitrineWebsiteBucket.WebsiteURL}"
 
 Outputs:
   GTS3WebsiteUrl:
