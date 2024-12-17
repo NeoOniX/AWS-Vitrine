@@ -36,7 +36,7 @@ Resources:
       HostedZoneName: e5estiam.com.
       Name: vitrine-gto.e5estiam.com
       Type: CNAME
-      TTL: 900
+      TTL: 300
       ResourceRecords:
         - !Sub "${GTVitrineWebsiteBucket.WebsiteURL}"
 
