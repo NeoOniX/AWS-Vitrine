@@ -1,6 +1,6 @@
 function App() {
   return (
-    <div className="relative h-screen w-full bg-slate-800 overflow-hidden">
+    <div className="relative h-screen w-full bg-red-800 overflow-hidden">
       <div className="h-screen w-full absolute top-0 left-0 flex flex-row justify-evenly">
         <img src="/toupie.png" className="animate-fall h-24 animation-delay-2" alt="Logo DUBETON" />
         <img src="/toupie.png" className="animate-fall h-24 animation-delay-0" alt="Logo DUBETON" />
